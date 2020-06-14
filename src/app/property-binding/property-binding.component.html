@@ -1,3 +1,5 @@
-<img src="{{ angularLogo }}">
-<img [src]="angularLogo">
-<img bind-src="angularLogo">
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile [colspan]="1"><img src="{{ angularLogo }}"></mat-grid-tile>
+  <mat-grid-tile [colspan]="1"><img [src]="angularLogo"></mat-grid-tile>
+  <mat-grid-tile [colspan]="2"><img bind-src="angularLogo"></mat-grid-tile>
+</mat-grid-list>
