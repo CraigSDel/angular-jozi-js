@@ -27,10 +27,9 @@ export class NavigationService {
 
   public getRoutes(): Route[] {
     const routes: Routes = [];
-    this.routingLinks().map(value => {
+    this.routingLinks().forEach(value => {
       return routes.push({path: value.url, component: value.component})
     });
     return routes;
   }
-
 }
