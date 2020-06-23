@@ -3,34 +3,38 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {PropertyBindingComponent} from './property-binding/property-binding.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NavigationComponent} from './navigation/navigation.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
-import {MatGridList, MatGridListModule, MatGridTile} from "@angular/material/grid-list";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {TemplateInternalComponent} from './component/template/template-internal/template-internal.component';
+import {TemplateExternalComponent} from './component/template/template-external/template-external.component';
+import {TemplateImageComponent} from './component/template/template-image/template-image.component';
+import {PropertyBindingComponent} from "./component/property-binding/property-binding.component";
+import {NavigationComponent} from "./component/navigation/navigation.component";
+import {EventBindingComponent} from "./component/event-binding/event-binding.component";
+import {AngularMaterialModule} from "./module/angular-material/angular-material.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     PropertyBindingComponent,
-    NavigationComponent
+    NavigationComponent,
+    EventBindingComponent,
+    TemplateInternalComponent,
+    TemplateExternalComponent,
+    TemplateImageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatGridListModule
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
