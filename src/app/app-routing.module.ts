@@ -1,11 +1,11 @@
-import {NgModule, OnInit} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {NavigationService} from "./servcie/navigation/navigation.service";
+import {NavigationService} from './servcie/navigation/navigation.service';
 
-let routes: Routes = getRoutes();
+const routes: Routes = getRoutes();
 
 function getRoutes() {
-  let navigationService = new NavigationService();
+  const navigationService = new NavigationService();
   return navigationService.getRoutes();
 }
 
