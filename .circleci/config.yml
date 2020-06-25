@@ -1,21 +1,42 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
-  browser-tools: circleci/browser-tools@1.0.1
 jobs:
-  build-and-test:
+  run-tests:
+    working_directory: ~/circleci-test
     docker:
-      - image: 'cimg/node:13.12'
-    executor:
-      name: node/default
+      - image: circleci/node:10-browsers
     steps:
       - checkout
-      - browser-tools/install-browser-tools
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - run:
+          name: Show current branch
+          command: echo ${CIRCLE_BRANCH}
+      # Restore local dependencies from cache
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+      # Install project dependencies
+      - run:
+          name: Install local dependencies
+          command: npm install
+      # Cache local dependencies if they don't exist
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      # Lint the source code
+      - run:
+          name: Linting
+          command: npm run lint
+      # Test the source code
+      - run:
+          name: Testing
+          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 workflows:
-  build-and-test:
+  version: 2.1
+  test_workflow:
     jobs:
-      - build-and-test
+      - run-tests
+#          filters:
+#            branches:
+#              only:
+#                - master
