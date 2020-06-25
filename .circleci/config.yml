@@ -30,7 +30,8 @@ jobs:
       # Test the source code
       - run:
           name: Testing
-          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          command: npm run test -- --no-watch --no-progress
+#          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 workflows:
   version: 2.1
   test_workflow:
