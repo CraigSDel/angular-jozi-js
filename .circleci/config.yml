@@ -1,16 +1,16 @@
 version: 2.1
-#orbs:
-#  node: circleci/node@1.1.6
+orbs:
+  node: circleci/node@1.1.6
+  browser-tools: circleci/browser-tools@1.0.1
 jobs:
   build-and-test:
     docker:
-        - image:  circleci/node:12
-      environment:
-        CHROME_BIN: /usr/bin/google-chrome
+      - image: 'cimg/node:13.12'
     executor:
       name: node/default
     steps:
       - checkout
+      - browser-tools/install-browser-tools
       - node/with-cache:
           steps:
             - run: npm install
