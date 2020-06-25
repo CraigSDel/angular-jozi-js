@@ -12,6 +12,7 @@ import {PropertyBindingComponent} from './component/property-binding/property-bi
 import {NavigationComponent} from './component/navigation/navigation.component';
 import {EventBindingComponent} from './component/event-binding/event-binding.component';
 import {AngularMaterialModule} from './module/angular-material/angular-material.module';
+import { DirectivesComponent } from './component/directives/directives.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {AngularMaterialModule} from './module/angular-material/angular-material.
     EventBindingComponent,
     TemplateInternalComponent,
     TemplateExternalComponent,
-    TemplateImageComponent
+    TemplateImageComponent,
+    DirectivesComponent
   ],
   imports: [
     BrowserModule,
