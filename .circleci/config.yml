@@ -1,43 +1,60 @@
 version: 2.1
-jobs:
-  run-tests:
-    working_directory: ~/circleci-test
+executors:
+  my-executor:
     docker:
-      - image: circleci/node:10-browsers
+      - image: circleci/node:8.9.4-browsers
+    working_directory: ~/mwd-angular-zerotohero-v7
+jobs:
+  setup-environment:
+    executor: my-executor
     steps:
-      - checkout
-      - run:
-          name: Show current branch
-          command: echo ${CIRCLE_BRANCH}
-      # Restore local dependencies from cache
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-            - v1-dependencies-
-      # Install project dependencies
-      - run:
+        ...
+          - run:
           name: Install local dependencies
-          command: npm install
-      # Cache local dependencies if they don't exist
-      - save_cache:
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
-      # Lint the source code
-      - run:
-          name: Linting
-          command: npm run lint
-      # Test the source code
-      - run:
-          name: Testing
-          command: npm run test -- --no-watch --no-progress
-#          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-workflows:
-  version: 2.1
-  test_workflow:
-    jobs:
-      - run-tests
-#          filters:
-#            branches:
-#              only:
-#                - master
+          command: |
+            sudo npm i npm@6.9.0 -g
+            npm install
+          - run:
+              name: Build Node Sass
+              command: npm install --unsafe-perm node-sass
+          - save_cache:
+              key: v1-dependencies-{{ checksum "package.json" }}
+              paths:
+                - node_modules
+          - persist_to_workspace:
+              root: .
+              paths:
+                - src
+                - package.json
+                - angular.json
+                - Dockerfile
+                - tslint.json
+                - tsconfig.json
+build:
+  executor: my-executor
+  steps:
+    - attach_workspace:
+        at: ~/angular-jozi-js
+    - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+    - run:
+        name: Building
+        command: |
+          if [[ "${CIRCLE_BRANCH}" == "staging-"* ]]; then
+            npm run build-staging
+          elif [ "${CIRCLE_BRANCH}" == "master" ]; then
+            npm run build-production
+          else
+            npm run build
+          fi
+    # Cache the dist folder for the deploy job
+    - save_cache:
+        key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+        paths:
+          - dist
+    - persist_to_workspace:
+        root: .
+        paths:
+          - dist
