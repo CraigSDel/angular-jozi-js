@@ -1,17 +1,22 @@
-version: 2.1
+version: 2
 jobs:
   build:
     working_directory: ~/angular-jozi-js
     docker:
-      - image: circleci/node:10-browsers # the primary container, where your job's commands are run
+      - image: circleci/node:10-browsers
     steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world"
+      - checkout
       - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-            - v1-dependencies-
-            # Install project dependencies
-            - run:
-                name: Install local dependencies
-                command: npm install
+          key: angular-jozi-js-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: angular-jozi-js-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+
+      - run:
+          name: Lint
+          command: npm run ng lint
+      - run:
+          name: Unit Test
+          command: npm run ng test -- --watch=false --code-coverage
