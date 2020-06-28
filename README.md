@@ -4,9 +4,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## CircleCI
 
-# Template:
-[![CraigSDel](https://circleci.com/gh/CraigSDel/angular-jozi-js.svg?style=svg)](https://craig-stroberg.web.app/)
-
 [![CircleCI](https://circleci.com/gh/CraigSDel/angular-jozi-js.svg?style=svg&circle-token=465d19933a156dd93b314e4eea92b9872855cecf)](https://craig-stroberg.web.app/)
 
 ## Development server
