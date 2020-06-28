@@ -1,59 +1,17 @@
-version: 2.1
-executors:
-  my-executor:
-    docker:
-      - image: circleci/node:8.9.4-browsers
-    working_directory: ~/mwd-angular-zerotohero-v7
+version: 2
 jobs:
-  setup-environment:
-    executor: my-executor
+  build:
+    working_directory: ~/angular-jozi-js
+    docker:
+      - image: circleci/node:8-browsers
     steps:
-          - run:
-          name: Install local dependencies
-          command: |
-            sudo npm i npm@6.9.0 -g
-            npm install
-          - run:
-              name: Build Node Sass
-              command: npm install --unsafe-perm node-sass
-          - save_cache:
-              key: v1-dependencies-{{ checksum "package.json" }}
-              paths:
-                - node_modules
-          - persist_to_workspace:
-              root: .
-              paths:
-                - src
-                - package.json
-                - angular.json
-                - Dockerfile
-                - tslint.json
-                - tsconfig.json
-build:
-  executor: my-executor
-  steps:
-    - attach_workspace:
-        at: ~/angular-jozi-js
-    - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-    - run:
-        name: Building
-        command: |
-          if [[ "${CIRCLE_BRANCH}" == "staging-"* ]]; then
-            npm run build-staging
-          elif [ "${CIRCLE_BRANCH}" == "master" ]; then
-            npm run build-production
-          else
-            npm run build
-          fi
-    # Cache the dist folder for the deploy job
-    - save_cache:
-        key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-        paths:
-          - dist
-    - persist_to_workspace:
-        root: .
-        paths:
-          - dist
+      - checkout
+      - restore_cache:
+          key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - "node_modules"
+      - run: xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
+      - run: xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
