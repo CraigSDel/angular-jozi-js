@@ -6,9 +6,7 @@ jobs:
       - image: circleci/node:10-browsers # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run:
-          name: Show current branch
-            command: echo ${CIRCLE_BRANCH}
+      - run: echo "hello world"
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
