@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Unit Test
           command: npm run ng test -- --watch=false --code-coverage
-       - run:
+      - run:
           name: Coveralls
           command: cat ./coverage/angular-jozi-js/lcov.info  | ./node_modules/coveralls/bin/coveralls.js
 
