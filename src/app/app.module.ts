@@ -11,8 +11,8 @@ import {TemplateImageComponent} from './component/template/template-image/templa
 import {PropertyBindingComponent} from './component/property-binding/property-binding.component';
 import {NavigationComponent} from './component/navigation/navigation.component';
 import {EventBindingComponent} from './component/event-binding/event-binding.component';
-import {AngularMaterialModule} from './module/angular-material/angular-material.module';
-import { DirectivesComponent } from './component/directives/directives.component';
+import {CustomAngularMaterialModule} from './module/angular-material/custom-angular-material.module';
+import {DirectivesComponent} from './component/directives/directives.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { DirectivesComponent } from './component/directives/directives.component
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    AngularMaterialModule
+    CustomAngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

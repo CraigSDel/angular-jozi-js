@@ -3,14 +3,20 @@ import {CommonModule} from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon/icon-module';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatGridListModule
   ],
   exports: [
     MatToolbarModule,
@@ -18,7 +24,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatGridListModule]
+    MatGridListModule
+  ]
 })
-export class AngularMaterialModule {
+export class CustomAngularMaterialModule {
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-property-binding',
@@ -7,5 +7,5 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropertyBindingComponent {
 
-    angularLogo = 'https://angular.io/assets/images/logos/angular/angular.svg';
+  angularLogo = 'https://angular.io/assets/images/logos/angular/angular.svg';
 }
