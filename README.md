@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
 
+## CircleCI
+
+# Template:
+[![<ORG_NAME>](https://circleci.com/github/CraigSDel/angular-jozi-js.svg?style=svg)](<LINK>)
+
+[![CircleCI](https://circleci.com/github/CraigSDel/angular-jozi-js.svg?style=svg&circle-token=465d19933a156dd93b314e4eea92b9872855cecf)](<LINK>)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
