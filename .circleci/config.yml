@@ -3,7 +3,7 @@ version: 2
   jobs:
     # The test job
     test:
-      working_directory: ~/project-name
+      working_directory: ~/angular-jozi-js
       docker:
         - image: circleci/node:10-browsers
       steps:
