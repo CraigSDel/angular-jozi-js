@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {NavigationService} from './servcie/navigation/navigation.service';
+import {NavigationService} from './service/navigation/navigation.service';
 
 const routes: Routes = getRoutes();
 

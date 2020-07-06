@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemplateImageComponent } from './template-image.component';
+import { TemplateHeadingComponent } from './template-heading.component';
 
 describe('TemplateImageComponent', () => {
-  let component: TemplateImageComponent;
-  let fixture: ComponentFixture<TemplateImageComponent>;
+  let component: TemplateHeadingComponent;
+  let fixture: ComponentFixture<TemplateHeadingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TemplateImageComponent ]
+      declarations: [ TemplateHeadingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TemplateImageComponent);
+    fixture = TestBed.createComponent(TemplateHeadingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

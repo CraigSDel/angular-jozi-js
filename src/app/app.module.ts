@@ -5,14 +5,15 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LayoutModule} from '@angular/cdk/layout';
-import {TemplateInternalComponent} from './component/template/template-internal/template-internal.component';
-import {TemplateExternalComponent} from './component/template/template-external/template-external.component';
-import {TemplateImageComponent} from './component/template/template-image/template-image.component';
+import {TemplateInternalComponent} from './component/template/internal/template-internal.component';
+import {TemplateExternalComponent} from './component/template/external/template-external.component';
+import {TemplateHeadingComponent} from './component/template/heading/template-heading.component';
 import {PropertyBindingComponent} from './component/property-binding/property-binding.component';
 import {NavigationComponent} from './component/navigation/navigation.component';
 import {EventBindingComponent} from './component/event-binding/event-binding.component';
-import {CustomAngularMaterialModule} from './module/angular-material/custom-angular-material.module';
+import {CustomAngularMaterialModule} from './module/custom-angular-material/custom-angular-material.module';
 import {DirectivesComponent} from './component/directives/directives.component';
+import { HighlightDirective } from './component/directives/highlight/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,9 @@ import {DirectivesComponent} from './component/directives/directives.component';
     EventBindingComponent,
     TemplateInternalComponent,
     TemplateExternalComponent,
-    TemplateImageComponent,
-    DirectivesComponent
+    TemplateHeadingComponent,
+    DirectivesComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

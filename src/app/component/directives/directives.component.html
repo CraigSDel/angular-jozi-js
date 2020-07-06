@@ -1,1 +1,37 @@
-<p>directives works!</p>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Appearance Directive</mat-card-title>
+      <mat-card-subtitle>appHighlight</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p appHighlight>Appearance Directive</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile><mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Structural Directive</mat-card-title>
+      <mat-card-subtitle>e.g ngFor</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p *ngFor="let i of [0,1,2,3,4]" appHighlight>Structural Directive {{i}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card></mat-grid-tile>
+</mat-grid-list>
+
+
+
+
+
