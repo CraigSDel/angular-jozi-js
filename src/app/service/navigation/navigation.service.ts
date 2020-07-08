@@ -6,6 +6,7 @@ import {TemplateInternalComponent} from '../../component/template/internal/templ
 import {TemplateExternalComponent} from '../../component/template/external/template-external.component';
 import {Route, Routes} from '@angular/router';
 import {DirectivesComponent} from '../../component/directives/directives.component';
+import {ModuleGreetingComponent} from '../../component/module-greeting/module-greeting.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,9 @@ export class NavigationService {
     new RoutingLink('directives', 'Directives', DirectivesComponent),
     new RoutingLink('property-binding', 'Property Binding', PropertyBindingComponent),
     new RoutingLink('event-binding', 'Event Binding', EventBindingComponent),
-    new RoutingLink('template-internal', 'Template internal', TemplateInternalComponent),
-    new RoutingLink('template-external', 'Template External', TemplateExternalComponent)
+    new RoutingLink('template-internal', 'Template Internal', TemplateInternalComponent),
+    new RoutingLink('template-external', 'Template External', TemplateExternalComponent),
+    new RoutingLink('module', 'Module', ModuleGreetingComponent)
   ];
 
   constructor() {

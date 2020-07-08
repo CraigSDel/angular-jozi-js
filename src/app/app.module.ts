@@ -14,6 +14,8 @@ import {EventBindingComponent} from './component/event-binding/event-binding.com
 import {CustomAngularMaterialModule} from './module/custom-angular-material/custom-angular-material.module';
 import {DirectivesComponent} from './component/directives/directives.component';
 import { HighlightDirective } from './component/directives/highlight/highlight.directive';
+import {GreetingModule} from './module/greeting/greeting.module';
+import { ModuleGreetingComponent } from './component/module-greeting/module-greeting.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import { HighlightDirective } from './component/directives/highlight/highlight.d
     TemplateExternalComponent,
     TemplateHeadingComponent,
     DirectivesComponent,
-    HighlightDirective
+    HighlightDirective,
+    ModuleGreetingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    CustomAngularMaterialModule
+    CustomAngularMaterialModule,
+    GreetingModule, // Added here
   ],
   providers: [],
   bootstrap: [AppComponent]
