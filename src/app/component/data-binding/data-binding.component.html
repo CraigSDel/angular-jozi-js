@@ -1,0 +1,11 @@
+<mat-grid-list cols="1" rowHeight="100px">
+  <mat-grid-tile>
+    <p>One way binding</p>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <input matInput (keyup)="onKey($event)">
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <p>{{value}}</p>
+  </mat-grid-tile>
+</mat-grid-list>

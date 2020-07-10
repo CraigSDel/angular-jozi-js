@@ -8,4 +8,5 @@ import {Component} from '@angular/core';
 export class PropertyBindingComponent {
 
   angularLogo = 'https://angular.io/assets/images/logos/angular/angular.svg';
+  zander: any;
 }

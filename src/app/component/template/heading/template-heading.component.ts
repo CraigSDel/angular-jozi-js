@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+// TODO figure out why that did not work
 @Component({
   selector: 'app-template-heading',
   templateUrl: './template-heading-component.html',

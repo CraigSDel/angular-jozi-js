@@ -13,9 +13,12 @@ import {NavigationComponent} from './component/navigation/navigation.component';
 import {EventBindingComponent} from './component/event-binding/event-binding.component';
 import {CustomAngularMaterialModule} from './module/custom-angular-material/custom-angular-material.module';
 import {DirectivesComponent} from './component/directives/directives.component';
-import { HighlightDirective } from './component/directives/highlight/highlight.directive';
+import {HighlightDirective} from './component/directives/highlight/highlight.directive';
 import {GreetingModule} from './module/greeting/greeting.module';
-import { ModuleGreetingComponent } from './component/module-greeting/module-greeting.component';
+import {ModuleGreetingComponent} from './component/module-greeting/module-greeting.component';
+import { DataBindingComponent } from './component/data-binding/data-binding.component';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { ModuleGreetingComponent } from './component/module-greeting/module-gree
     TemplateHeadingComponent,
     DirectivesComponent,
     HighlightDirective,
-    ModuleGreetingComponent
+    ModuleGreetingComponent,
+    DataBindingComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,10 @@ import { ModuleGreetingComponent } from './component/module-greeting/module-gree
     BrowserAnimationsModule,
     LayoutModule,
     CustomAngularMaterialModule,
-    GreetingModule, // Added here
+    GreetingModule,
+    MatInputModule,
+    FormsModule,
+    // Added here
   ],
   providers: [],
   bootstrap: [AppComponent]
